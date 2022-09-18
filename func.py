@@ -8,7 +8,7 @@ import os
 
 hotel_name = 'Southern Crest' # Name of hotel
 # Path
-path = 'D:/Advait/Python/Personal Projects/Hotel Booking Management System/Customer Data of Hotel Southern Crest.xlsx'
+path = 'D:/Advait/Python/Personal Projects/Hotel Booking Management System/Customer Data of Hotel Southern Crest.xlsx'  # Path needs to be correct as per the location of excelsheet in your system
 
 # Check whether a path pointing to a file
 isFile = os.path.isfile(path)
