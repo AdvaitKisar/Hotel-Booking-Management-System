@@ -1,0 +1,23 @@
+Sr. No.   Item Name               Price (in Rs.)
+1.        Tea                           20      
+2.        Coffee                        25      
+3.        Cold Coffee                   30      
+4.        Idli                          50      
+5.        Dosa                          60      
+6.        Masala Dosa                   80      
+7.        Appam                         60      
+8.        Aloo Paratha                  60      
+9.        Pav Bhaji                     100     
+10.       Poha                          60      
+11.       Upma                          60      
+12.       Vadapav                       30      
+13.       Samosa                        20      
+14.       Naan                          20      
+15.       Roti                          20      
+16.       Chapati                       20      
+17.       Paneer Butter Masala          200     
+18.       Matar Paneer                  150     
+19.       Veg Pulav                     200     
+20.       Veg Biryani                   200     
+21.       Chicken Biryani               300     
+22.       Mutton Biryani                400     

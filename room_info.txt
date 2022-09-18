@@ -1,0 +1,8 @@
+1. AC Room with 3 beds - Rs. 4000 / day.
+2. AC Room with 2 beds - Rs. 3500 / day.
+3. Non-AC Room with 3 beds - Rs. 2000 / day.
+4. Non-AC Room with 2 beds - Rs. 1500 / day.
+Additional charges for room services are:
+1. Extra bed for 1 person - Rs. 200 / day.
+2. Please check the menu of restaurant for prices of meals and food items.
+3. Please check the 4th option in Home menu for other services.

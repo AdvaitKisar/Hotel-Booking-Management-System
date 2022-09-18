@@ -1,0 +1,9 @@
+Enter a number amongst below eight options for the option you want:
+1. ROOM INFO
+2. BOOKING
+3. RESTAURANT
+4. OTHER SERVICES
+5. PAYMENT
+6. SAVE DATA IN EXCEL
+7. RECORD
+0. EXIT
