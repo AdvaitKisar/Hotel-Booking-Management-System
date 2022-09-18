@@ -28,6 +28,8 @@ if isFile == True:
     other_charges = [sheet1.iloc[:, 11][i] for i in range(len(sheet1.iloc[:, 11]))]
     net_price_list = [sheet1.iloc[:, 12][i] for i in range(len(sheet1.iloc[:, 12]))]
     payment_opt_list = [sheet1.iloc[:, 13][i] for i in range(len(sheet1.iloc[:, 13]))]
+    feedback_list = [sheet1.iloc[:, 14][i] for i in range(len(sheet1.iloc[:, 14]))]
+    rating_list = [sheet1.iloc[:, 15][i] for i in range(len(sheet1.iloc[:, 15]))]
 else:
     name_list = []
     phno_list = []
@@ -42,6 +44,8 @@ else:
     other_charges = []
     net_price_list = []
     payment_opt_list = []
+    feedback_list = []
+    rating_list = []
 
 head_list = []
 
@@ -98,6 +102,8 @@ def Home():
         save_data(1)
     elif home_val == 7:
         record()
+    elif home_val == 8:
+        feedback(1)
     elif home_val != 0:
         print("Invalid Option.")
         print("Please re-enter a correct option.")
@@ -245,6 +251,8 @@ def booking(): # Function for booking a room
     room_no_list.append(rn)
     room_type.append(room_type_func(type_room))
     payment_opt_list.append('Not selected yet')
+    feedback_list.append('None')
+    rating_list.append(0)
     # Taking details of customers
     n_p = int(input("Enter total no. of people: "))
     for i in range(n_p):
@@ -486,6 +494,8 @@ def payment(): # Function for payment for the stay
             print(f"The total amount you have to pay is Rs. {round(net_price_list[CI_index], 2)} for your stay at Hotel {hotel_name} from {checkin_list[CI_index]} to {checkout_list[CI_index]} in Room No. {room_no_list[CI_index]}")
             print("THANK YOU FOR YOUR STAY AT OUR HOTEL!!!")
             print("PLEASE VISIT US AGAIN")
+            if feedback_list[CI_index] == 'None' or rating_list[CI_index] == 0:
+                feedback(0, CI)
             save_data(0)
             n = int(input("Enter 1 for Home, 2 for Payment and 0 for Exit.\n"))
             if n == 1:
@@ -554,13 +564,15 @@ def save_data(j): # Function for saving the excelsheet's data
     df['Other Charges'] = other_charges
     df['Total Bill'] = net_price_list
     df['Payment Option used'] = payment_opt_list
+    df['Feedback'] = feedback_list
+    df['Rating'] = rating_list
+    df.to_excel('Customer Data of Hotel {}.xlsx'.format(hotel_name), index=False)
     if j == 1:
         n = int(input("Enter 1 for Home and 0 for Exit.\n"))
         if n == 1:
             Home()
         else:
             exit()
-    df.to_excel('Customer Data of Hotel {}.xlsx'.format(hotel_name), index=False)
 
 def record(): # Prints the record on terminal
     net_price_calculate()
@@ -796,5 +808,53 @@ def other_services(): # Function for other services
             Home()
         if n == 2:
             other_services()
+        else:
+            exit()
+        
+def feedback(j, CI=0): # Function for collecting feedback
+    if j==1: # When customer willingly comes to give feedback/rating
+        CI = int(input("Enter your Customer ID: "))
+        if CI not in cust_list:
+            print("You have entered an invalid Customer ID.")
+            print("Please re-enter correct customer ID.")
+            n = int(input("Enter 1 for Home, 2 for Payment and 0 for Exit.\n"))
+            if n == 1:
+                Home()
+            elif n == 2:
+                payment()
+            else:
+                exit()
+        CI_index = cust_list.index(CI)
+        CI_ind = 0
+        for i in range(len(cust_list)):
+            if cust_list[i] == CI:
+                CI_ind = 1
+                break
+    elif j==0: # Feedback during payment
+        ind = int(input("Enter 1 for giving feedback or else enter 0 for skipping: "))
+        if ind != 1:
+            exit()
+        CI_ind = 1
+        CI_index = cust_list.index(CI)
+    if CI_ind == 1: # If customer ID is valid, it will proceed
+            rating_val = int(input("Please enter the rating between 1 to 5: "))
+            while rating_val not in [1, 2, 3, 4, 5]:
+                rating_val = int(input("Please enter the rating between 1 to 5: "))
+            rating_list[CI_index] = rating_val
+            feedback_str = input("Please enter your feedback\n")
+            while feedback_str == 'None' or feedback_str == '' or feedback_str == ' ':
+                feedback_str = input("Please enter your feedback\n")
+            feedback_list[CI_index] = feedback_str
+            save_data(0) # Saves data in excelsheet
+            n = int(input("Enter 1 for Home and 0 for Exit.\n"))
+            if n == 1:
+                Home()
+            else:
+                exit()
+    else:
+        print("Your customer ID is invalid.")
+        n = int(input("Enter 1 for Home and 0 for Exit.\n"))
+        if n == 1:
+            Home()
         else:
             exit()
