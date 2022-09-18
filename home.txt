@@ -6,4 +6,5 @@ Enter a number amongst below eight options for the option you want:
 5. PAYMENT
 6. SAVE DATA IN EXCEL
 7. RECORD
+8. FEEDBACK
 0. EXIT
