@@ -2,13 +2,13 @@
 ## Introduction
 This project helps to book rooms in a hotel as per our choice and allots the same after checking for availability of the room as per our input. It also helps us to process and manage the billing system and maintains the financial records for the hotel as well. This system is designed in such a way that the entire hotel is divided into 4 equal sections, with top half having air conditioned rooms and bottom half having non-AC rooms. These halves are further divided such that the top half of each half has rooms with 3 beds and bottom half has rooms with 2 beds.
 ## Files used
-The project mainly has a main python file (*main.py*) which invokes the function python file's (*func.py*) **'Home'** function. The **Home** function in turn prompts the user to select an option from 8 options, which are listed in the file (*home.txt*). As per the user's input for the previous prompt, the program invokes the corresponding function. The menu of the restaurant is stored in the text file (*menu.txt*) and excelsheet (*menu.xlsx*). The room info is stored in the text file (*room_info.txt*). The record of all customers is stored in the excelsheet (*Customer Data of Hotel <hotel_name>.xlsx*).
+The project mainly has a main python file (*main.py*) which invokes the function python file's (*func.py*) **'Home'** function. The **Home** function in turn prompts the user to select an option from 9 options, which are listed in the file (*home.txt*). As per the user's input for the previous prompt, the program invokes the corresponding function. The menu of the restaurant is stored in the text file (*menu.txt*) and excelsheet (*menu.xlsx*). The room info is stored in the text file (*room_info.txt*). The record of all customers is stored in the excelsheet (*Customer Data of Hotel <hotel_name>.xlsx*).
 ## Working of the Program
 ### Function File
 When the main file invokes home function from function file, the function file firstly checks for excelsheet containing previous records of customers and if it's present in the directory, it will import all the data from each column for further computation. If it's not present, the program will create empty lists which can be used later for computation.
 
 ### Home Function
-As per the input from the user, the program will redirect the user to room info for '1', booking for '2', restaurant for '3', other services for '4', payment for '5', saving the data manually (by hotel staff) for '6', generating record for '7' and exiting the program for '0'.
+As per the input from the user, the program will redirect the user to room info for '1', booking for '2', restaurant for '3', other services for '4', payment for '5', saving the data manually (by hotel staff) for '6', generating record for '7', giving feedback/rating for '8' and exiting the program for '0'.
 
 ### Booking Function
 The booking function prompts the user to enter the check-in and check-out dates in DD/MM/YYYY format. Also, the booking can only be done within a specific time duration which is 180 days in this program starting from the next day. Then the program checks if these dates are valid and within the range of the specified duration. It also checks if the check-in is before check-out, or else it will prompt the user to re-enter the dates. After that, the program will display the room info again followed by the prompt for choice of room type among the 4 options described in the introduction. Hence, the program will generate the room no. randomly within the range constrained by choice of room. The customer ID is also generated from 10000 onwards.
@@ -29,6 +29,9 @@ This function is called in several other functions to store the data during runt
 
 ### Record Function
 The record function prints all the details of all the customers who have stayed in the hotel till date.
+
+### Feedback Function
+The feedback function is either invoked through the home function where the user has to enter the customer ID himself/herself for giving the feedback and rating. Or else, it is invoked in the payment function if the customer hasn't given any rating/feedback earlier. In this case, he/she doesn't need to enter the customer ID again. The feedback function asks for a rating between 1 to 5 and a feedback in the form of a string. If the input is irrelevant, the function prompts the user to re-enter feedback or rating or both depending on the irrelevance of the previous input. Finally, the feedback and rating are stored in the lists made for them and updated in the excelsheet automatically.
 
 ## Features of the Program
 1. The program will never allot the same room to two customers during a specific interval and will search for the new room continuously by ensuring that room is vacant for all days of the stay of the customer.
