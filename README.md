@@ -34,4 +34,4 @@ The record function prints all the details of all the customers who have stayed 
 4. Biggest advantage is that the data of the old customers remains intact even if the program stops running and the program starts running from where it stopped in the past.
 5. All the financial payment data is also stored intact forever which can be retrieved later by the excelsheet or generating the record.
 6. The bill receipts can be generated and saved for reference in future.
-7. The same program can be modified further for generating invoices, quotations for businesses and can be used in many places like offices, medical stores, hospitals, banks
+7. The same program can be modified further for generating invoices, quotations for businesses and can be used in many places like offices, medical stores, hospitals, banks, etc.
