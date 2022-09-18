@@ -8,7 +8,7 @@ import os
 
 hotel_name = 'Southern Crest' # Name of hotel
 # Path
-path = 'D:/Advait/Non Core/Python/Personal Projects/Hotel Management _ Gdrive/Hotel Management System Correct - Copy/Customer Data of Hotel Southern Crest.xlsx'
+path = 'D:/Advait/Non Core/Python/Personal Projects/Hotel Booking Management System/Customer Data of Hotel Southern Crest.xlsx'
 
 # Check whether a path pointing to a file
 isFile = os.path.isfile(path)
@@ -403,7 +403,7 @@ def payment(): # Function for payment for the stay
     if CI not in cust_list:
         print("You have entered an invalid Customer ID.")
         print("Please re-enter correct customer ID.")
-        n = int(input("Enter 1 for Home, 2 for Payment and 0 for Exit"))
+        n = int(input("Enter 1 for Home, 2 for Payment and 0 for Exit.\n"))
         if n == 1:
             Home()
         elif n == 2:
@@ -440,8 +440,10 @@ def payment(): # Function for payment for the stay
                 print("1.        Stay                        {}      ".format(room_charges[CI_index]), file=b)
                 if rest_charges[CI_index] != 0:
                     print("2.        Meals                       {}      ".format(round(rest_charges[CI_index], 2)), file=b)
-                if other_charges[CI_index] != 0:
+                if rest_charges[CI_index] != 0 and other_charges[CI_index] != 0:
                     print("3.        Other Charges               {}      ".format(round(other_charges[CI_index]), 2), file=b)
+                if rest_charges[CI_index] == 0 and other_charges[CI_index] != 0:
+                    print("2.        Other Charges               {}      ".format(round(other_charges[CI_index]), 2), file=b)
                 for j in range(100):
                     if j!= 100-1:
                         print("-", end="", file=b)
@@ -466,10 +468,10 @@ def payment(): # Function for payment for the stay
                     else:
                         print("-")
             print("1.        Stay                        {}      ".format(room_charges[CI_index]))
-            if rest_charges[CI_index] != 0:
-                print("2.        Meals                       {}      ".format(round(rest_charges[CI_index], 2)))
-            if other_charges[CI_index] != 0:
-                print("3.        Other Charges               {}      ".format(round(other_charges[CI_index], 2)))
+            if rest_charges[CI_index] != 0 and other_charges[CI_index] != 0:
+                print("3.        Other Charges               {}      ".format(round(other_charges[CI_index]), 2))
+            if rest_charges[CI_index] == 0 and other_charges[CI_index] != 0:
+                print("2.        Other Charges               {}      ".format(round(other_charges[CI_index]), 2))
             for j in range(100):
                     if j!= 100-1:
                         print("-", end="")
