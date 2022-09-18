@@ -24,6 +24,9 @@ The other services function includes the services with input such as Cab for '1'
 ### Payment Function
 For doing the payment, the user has to enter his/her customer ID and registered phone number. If a user enters wrong customer ID or phone no., then he/she would be propmted to enter the customer ID and phone no. again. The user is now asked to opt for a payment method, after which the program will compute the total amount of the restaurant charges, staying charges & other charges and will generate a text file having the bill printed in it and it will also print the same on the terminal.The program will save all the data in the excelsheet of the database automatically.
 
+### Save Data Function
+This function is called in several other functions to store the data during runtime, but one can also save the data manually by entering '6' in the Home function's input.
+
 ### Record Function
 The record function prints all the details of all the customers who have stayed in the hotel till date.
 
