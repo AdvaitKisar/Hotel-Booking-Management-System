@@ -33,7 +33,7 @@ The record function prints all the details of all the customers who have stayed 
 ### Feedback Function
 The feedback function is either invoked through the home function where the user has to enter the customer ID himself/herself for giving the feedback and rating. Or else, it is invoked in the payment function if the customer hasn't given any rating/feedback earlier. In this case, he/she doesn't need to enter the customer ID again. The feedback function asks for a rating between 1 to 5 and a feedback in the form of a string. If the input is irrelevant, the function prompts the user to re-enter feedback or rating or both depending on the irrelevance of the previous input. Finally, the feedback and rating are stored in the lists made for them and updated in the excelsheet automatically.
 
-## Features of the Program
+## Salient Features of the Program
 1. The program will never allot the same room to two customers during a specific interval and will search for the new room continuously by ensuring that room is vacant for all days of the stay of the customer.
 2. The prices are computed simultaneously for all services during runtime.
 3. No need to manually save the data each time as it is saved automatically while running each function.
