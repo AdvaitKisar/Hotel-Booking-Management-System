@@ -8,7 +8,7 @@ import os
 
 hotel_name = 'Southern Crest' # Name of hotel
 # Path
-path = 'D:/Advait/Python/Personal Projects/Hotel Booking Management System/Customer Data of Hotel Southern Crest.xlsx'  # Path needs to be correct as per the location of excelsheet in your system
+path = f'D:/Advait/Python/Personal Projects/Hotel Booking Management System/Customer Data of Hotel {hotel_name}.xlsx'
 
 # Check whether a path pointing to a file
 isFile = os.path.isfile(path)
@@ -129,7 +129,7 @@ def room_prices(type_room): # Function for finding room prices per day as per ty
     elif type_room == 4:
         p = 1500
     else:
-        print("Your input is incorrect")
+        print("Your input is incorrect.\n")
     return p
 
 def room_type_func(type_room): # Function for writing type of room as per input
@@ -142,7 +142,7 @@ def room_type_func(type_room): # Function for writing type of room as per input
     elif type_room == 4:
         rt = "Non-AC Room with 2 beds"
     else:
-        print("Your input is incorrect")
+        print("Your input is incorrect.\n")
     return rt
 
 def booking(): # Function for booking a room
@@ -167,6 +167,9 @@ def booking(): # Function for booking a room
     room_info(0)
     print()
     type_room = int(input("Enter the choice of room you want: "))
+    while type_room not in [1, 2, 3, 4]:
+        print("The input for type of room is invalid")
+        type_room = int(input("Enter the choice of room you want: "))
     floor_no = rd.randint(1 + (4 - type_room)*(n_f/4), (5 - type_room)*(n_f/4)) # Finding random floor no. for given type of room
     room_no = rd.randint(1, n_rf) # Finding random room no. for given type of room
     rn = 100*floor_no+room_no # Finding corresponding room no. on the floor no. generated
@@ -468,6 +471,8 @@ def payment(): # Function for payment for the stay
                     else:
                         print("-")
             print("1.        Stay                        {}      ".format(room_charges[CI_index]))
+            if rest_charges[CI_index] != 0:
+                print("2.        Meals                       {}      ".format(round(rest_charges[CI_index], 2)))
             if rest_charges[CI_index] != 0 and other_charges[CI_index] != 0:
                 print("3.        Other Charges               {}      ".format(round(other_charges[CI_index]), 2))
             if rest_charges[CI_index] == 0 and other_charges[CI_index] != 0:
@@ -589,7 +594,7 @@ def other_services(): # Function for other services
         CI = int(input("Enter your Customer ID: "))
         if CI not in cust_list:
             print("You have entered an invalid Customer ID.")
-            ("Please re-enter correct customer ID.")
+            print("Please re-enter correct customer ID.")
             n = int(input("Enter 1 for Home, 2 for Other Services and 0 for Exit.\n"))
             if n == 1:
                 Home()
@@ -609,7 +614,7 @@ def other_services(): # Function for other services
             print("1. Mini Car  - Rs. 200 / hour - Rs. 4000 / day")
             print("2. Sedan Car - Rs. 300 / hour - Rs. 6000 / day")
             print("3. SUV       - Rs. 400 / hour - Rs. 8000 / day")
-            yn = input("Do you want to wish proceed: ")
+            yn = input("Do you wish to proceed: ")
             if yn[0] == 'y' or yn[0] == 'Y':
                 ct = int(input("Enter the serial no. of the cab you would like to book: "))
                 n_c = int(input("Enter the no. of cabs of type {}.: ".format(ct)))
@@ -642,7 +647,7 @@ def other_services(): # Function for other services
         CI = int(input("Enter your Customer ID: "))
         if CI not in cust_list:
             print("You have entered an invalid Customer ID.")
-            ("Please re-enter correct customer ID.")
+            print("Please re-enter correct customer ID.")
             n = int(input("Enter 1 for Home, 2 for Other Services and 0 for Exit.\n"))
             if n == 1:
                 Home()
@@ -694,7 +699,7 @@ def other_services(): # Function for other services
         CI = int(input("Enter your Customer ID: "))
         if CI not in cust_list:
             print("You have entered an invalid Customer ID.")
-            ("Please re-enter correct customer ID.")
+            print("Please re-enter correct customer ID.")
             n = int(input("Enter 1 for Home, 2 for Other Services and 0 for Exit.\n"))
             if n == 1:
                 Home()
@@ -745,7 +750,7 @@ def other_services(): # Function for other services
         CI = int(input("Enter your Customer ID: "))
         if CI not in cust_list:
             print("You have entered an invalid Customer ID.")
-            ("Please re-enter correct customer ID.")
+            print("Please re-enter correct customer ID.")
             n = int(input("Enter 1 for Home, 2 for Other Services and 0 for Exit.\n"))
             if n == 1:
                 Home()
